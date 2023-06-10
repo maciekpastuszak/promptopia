@@ -16,7 +16,10 @@ const Nav = () => {
           height={30}
           className="object-contain"
         />
+        <p className=""logo-text>Promptopia</p>
       </Link>
+
+      {/* Mobile Navigation */}
 
     </nav>
   )
