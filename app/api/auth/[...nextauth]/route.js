@@ -6,7 +6,7 @@ const handler = NextAuth({
     providers: [
         GoogleProvider({
             clientId: '',
-            clientSecret: '';
+            clientSecret: '',
         })
     ],
     async session({session}) {
