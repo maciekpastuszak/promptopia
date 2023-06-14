@@ -12,7 +12,7 @@ const Nav = () => {
   const [toggleDropdown, setToggleDropdown] = useState(false)
 
   useEffect(() => {
-    const setProviders = async () => {
+    const setUpProviders = async () => {
       const response = await getProviders();
 
       setProviders(response);
@@ -31,7 +31,7 @@ const Nav = () => {
           height={30}
           className="object-contain"
         />
-        <p className=""logo-text>Promptopia</p>
+        <p className="logo-text">Promptopia</p>
       </Link>
 
       {/* Desktop Navigation */}
