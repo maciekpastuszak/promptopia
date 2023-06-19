@@ -6,6 +6,8 @@ import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
+  const [copied, setCopied] = useState("");
+
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-start gap-5">
@@ -24,7 +26,14 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           </div>
         </div>
 
-        
+        <div className="copy_btn" onClick={() => {}}>
+          <Image 
+            src={copied === post.PromptCard
+            ? '/assets/icons/tick.svg'
+            : '/assets/icons/copy.svg'
+            }
+          />
+        </div>
       </div>
     </div>
   )
