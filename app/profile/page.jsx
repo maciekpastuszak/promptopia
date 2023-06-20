@@ -6,6 +6,18 @@ import React, { useEffect, useState } from 'react';
 import Profile from '@components/Profile';
 
 const MyProfile = () => {
+    const { data:session } = useSession();
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+          const response = await fetch(`/api/users/${session?.user.id}`);
+          const data = await response.json();
+    
+          setPosts(data);
+        }
+    
+        fetchPosts();
+      }, []);
 
     const handleEdit = () => {
 
