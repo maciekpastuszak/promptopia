@@ -8,6 +8,8 @@ import Profile from '@components/Profile';
 const MyProfile = () => {
     const { data:session } = useSession();
 
+    const [posts, setPosts] = useState([]);
+
     useEffect(() => {
         const fetchPosts = async () => {
           const response = await fetch(`/api/users/${session?.user.id}`);
@@ -16,7 +18,7 @@ const MyProfile = () => {
           setPosts(data);
         }
     
-        fetchPosts();
+        if(session?.user.id)fetchPosts();
       }, []);
 
     const handleEdit = () => {
@@ -31,7 +33,7 @@ const MyProfile = () => {
     <Profile 
         name="My"
         desc="Welcome to your personalized profile page"
-        data={[]}
+        data={posts}
         handleEdit={handleEdit}
         handleDelete={handleDelete}
     />
