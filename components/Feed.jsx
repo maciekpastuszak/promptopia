@@ -20,7 +20,7 @@ const PromptCardList = ({data, handleClick}) => {
 
 const Feed = () => {
   const [searchText, setSearchText] = useState('');
-  const [Posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([])
 
   const handleSearchChange = (e) => {
 
