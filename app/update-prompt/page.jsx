@@ -1,12 +1,12 @@
 "use client";
 
+import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import Form from '@components/Form';
 
-const CreatePrompt = () => {
+const EditPrompt = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
@@ -15,6 +15,10 @@ const CreatePrompt = () => {
     prompt: '',
     tag: '',
   });
+
+  useEffect(() => {
+
+  }, [promptId])
 
   const createPrompt = async (e) => {
     e.preventDefault();
@@ -51,4 +55,4 @@ const CreatePrompt = () => {
   )
 }
 
-export default CreatePrompt
+export default EditPrompt
