@@ -1,6 +1,7 @@
 import Prompt from "@models/prompt";
 import { connectToDB } from "@utils/database";
 
+//GET (read)
 export const GET = async (request, { params }) => {
     try {
         await connectToDB()
@@ -15,3 +16,21 @@ export const GET = async (request, { params }) => {
         return new Response("Failed to fetch all prompts", { status: 500 })
     }
 } 
+
+//PATCH (update)
+export const PATCH = async (request, { params }) => {
+    const { prompt, tag } = await request.json();
+
+    try {
+        await connectToDB();
+
+        const existingPrompt = await Prompt.findById(params.id);
+
+        if(!existingPrompt) return new Response("Prompt not found", { status: 404 })
+    } catch (error) {
+        
+    }
+}
+
+
+//DELETE (delete)
