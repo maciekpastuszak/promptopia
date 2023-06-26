@@ -27,7 +27,14 @@ const MyProfile = () => {
       };
 
     const handleDelete = async () => {
-
+      const hasConfirmed = confirm("Are you sure you want to delete this prompt?");
+      if (hasConfirmed) {
+        try {
+          
+        } catch (error) {
+          console.log(error)
+        }
+      }
     }
 
   return (
