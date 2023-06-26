@@ -30,7 +30,12 @@ const MyProfile = () => {
       const hasConfirmed = confirm("Are you sure you want to delete this prompt?");
       if (hasConfirmed) {
         try {
-          await fetch(`/api/prompt/${post._id.toString()}`)
+          await fetch(`/api/prompt/${post._id.toString()}`, {
+            method: 'DELETE'
+          });
+
+          const filteredPosts = myPost.filter((p) => p._id !== post._id);
+          setPosts(filteredPosts);
         } catch (error) {
           console.log(error)
         }
