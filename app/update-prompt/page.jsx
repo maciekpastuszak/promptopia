@@ -8,7 +8,6 @@ import Form from '@components/Form';
 
 const EditPrompt = () => {
   const router = useRouter();
-  const { data: session } = useSession();
   const searchParams = useSearchParams();
   const promptId = searchParams.get('id');
 
@@ -32,29 +31,29 @@ const EditPrompt = () => {
     if(pomptId) getPromptDetails()
   }, [promptId])
 
-  const createPrompt = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
+  // const createPrompt = async (e) => {
+  //   e.preventDefault();
+  //   setSubmitting(true);
 
-    try {
-      const response = await fetch('/api/prompt/new', {
-        method: 'POST',
-        body: JSON.stringify({
-          prompt: post.prompt,
-          userId: session?.user.id,
-          tag: post.tag
-        })
-      })
+  //   try {
+  //     const response = await fetch('/api/prompt/new', {
+  //       method: 'POST',
+  //       body: JSON.stringify({
+  //         prompt: post.prompt,
+  //         userId: session?.user.id,
+  //         tag: post.tag
+  //       })
+  //     })
 
-      if (response.ok) {
-        router.push('/');
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setSubmitting(false);
-    }
-  }
+  //     if (response.ok) {
+  //       router.push('/');
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setSubmitting(false);
+  //   }
+  // }
   
   return (
     <Form 
@@ -62,7 +61,7 @@ const EditPrompt = () => {
       post={post}
       setPost={setPost}
       submitting={submitting}
-      handleSubmit={createPrompt}
+      handleSubmit={() => {}}
     />
   )
 }
